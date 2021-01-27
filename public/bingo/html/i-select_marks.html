@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>I - Select marks and get data</title>
+
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+
+    <script type="text/javascript" src="../../lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
+    <script type="text/javascript" src="../js/i-select_marks.js"></script>
+</head>
+
+<body>
+  <a href="..">Back</a>
+
+  <p>
+    <label for="selectedMarksTextBox">
+      <span>Selection text box:</span>
+      <textarea readonly id="selectedMarksTextBox" placeholder="Selected data will go here" rows="1" cols="60" maxlength="4096"></textarea>
+    </label>
+  </p>
+  <div id="tableauViz" style="width:1000px; height:800px;"></div>
+</body>
+
+</html>
