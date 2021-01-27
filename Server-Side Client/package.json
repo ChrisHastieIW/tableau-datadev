@@ -1,15 +1,15 @@
 {
-  "name": "tableauRestAPI",
+  "name": "tableau-datadev-server",
   "version": "1.0.0",
-  "description": "node for Tableau REST API connections",
+  "description": "Server-side client for Tableau DataDev projects",
   "author": "Chris Hastie",
-  "license": "MIT",
   "scripts": {
     "start": "cls && node app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "http-server": "^0.12.3",
     "url": "^0.11.0"
   }
 }
