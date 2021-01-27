@@ -24,3 +24,26 @@ textarea {
 label {
   position: relative;
 }
+
+.bingoTable {
+  table-layout: fixed;
+  border: 1px solid black;
+  padding: 0px;
+}
+
+.bingoTable td {
+  word-wrap:break-word;
+  height: 140px;
+  width: 140px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 0px;
+}
+
+.bingoTable th {
+  word-wrap:break-word;
+  height: 40px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 0px;
+}
