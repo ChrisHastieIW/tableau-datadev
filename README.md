@@ -5,7 +5,7 @@ This is a playground for my personal Tableau #DataDev journey.
 ## Tableau DataDev Bingo
 One of my goals with this git repo is to complete the [Tableau DataDev Bingo](https://www.tableau.com/developer/mini-challenges) challenge.
 
-![Bingo Card](/Images/bingo_card.jpg)
+![Bingo Card](/images/bingo_card.jpg)
 
 ## Web Server Install Guide
 
