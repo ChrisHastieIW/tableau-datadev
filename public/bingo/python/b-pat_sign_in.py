@@ -13,7 +13,7 @@ def pat_tableau_authentication(
     # Request user password if not provided already
     if tableau_token_value == '' :
         import getpass
-        tableau_token_value = getpass.getpass('Password:')
+        tableau_token_value = getpass.getpass('Access token:')
 
     tableau_auth = tsc.PersonalAccessTokenAuth(tableau_token_name, tableau_token_value, tableau_content_url)
     server = tsc.Server('https://10ax.online.tableau.com/')
