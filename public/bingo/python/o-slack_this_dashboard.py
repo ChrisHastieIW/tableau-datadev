@@ -31,8 +31,8 @@ def retrieve_dashboard_image(
 
 def post_image_to_slack(
     slack_oath_token = '',
+    file_name = '',
     channels = '#tmp-slack-webhook-testing-playground',
-    file_name = './view_image.png',
     comment = 'Here\'s my test file :smile:'
 ) :
     # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
@@ -100,7 +100,7 @@ def retrieve_dashboard_image_and_post_to_slack(
     with tempfile.TemporaryFile(suffix='.png') as fp:
         fp.write(view_image)
 
-        post_image_to_slack(slack_oath_token, channels = '#tmp-slack-webhook-testing-playground', file_name = fp.name, comment = 'Here\'s my test file :smile:')
+        post_image_to_slack(slack_oath_token, file_name = fp.name, channels = '#tmp-slack-webhook-testing-playground', comment = 'Here\'s my test file :smile:')
 
 
 retrieve_dashboard_image_and_post_to_slack(
