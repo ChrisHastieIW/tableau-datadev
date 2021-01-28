@@ -41,7 +41,7 @@ def post_image_to_slack(
 
     # Request user password if not provided already
     if slack_oath_token == '' :
-    slack_oath_token = getpass.getpass('Slack OAuth token:')
+        slack_oath_token = getpass.getpass('Slack OAuth token:')
 
     # WebClient insantiates a client that can call API methods
     # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
@@ -51,16 +51,14 @@ def post_image_to_slack(
     try:
         # Call the files.upload method using the WebClient
         # Uploading files requires the `files:write` scope
-        result = client.files_upload(
+        client.files_upload(
             channels=channels,
             initial_comment=comment,
             file=file_name
         )
-        # Log the result
-        logger.info(result)
 
     except SlackApiError as e:
-        logger.error("Error uploading file: {}".format(e))
+        print("Error uploading file: {}".format(e))
 
     # url = "https://slack.com/api/chat.postMessage"
     #
@@ -93,15 +91,18 @@ def retrieve_dashboard_image_and_post_to_slack(
     tableau_content_url = 'chrishastieiwdev598367'
 ) :
     import tempfile
+    import os
 
     view_image = retrieve_dashboard_image(slack_oath_token, tableau_token_value, tableau_token_name, tableau_content_url)
 
     # create a temporary file using a context manager
-    with tempfile.TemporaryFile(suffix='.png') as fp:
-        fp.write(view_image)
+    fp = tempfile.NamedTemporaryFile(suffix='.png', dir = '.', delete=False)
+    fp.write(view_image)
 
-        post_image_to_slack(slack_oath_token, file_name = fp.name, channels = '#tmp-slack-webhook-testing-playground', comment = 'Here\'s my test file :smile:')
+    post_image_to_slack(slack_oath_token, file_name = fp.name, channels = '#tmp-slack-webhook-testing-playground', comment = 'Here\'s my test file :smile:')
 
+    fp.close()
+    os.remove(fp.name)
 
 retrieve_dashboard_image_and_post_to_slack(
     slack_oath_token = '',
